@@ -1,0 +1,11 @@
+allow from all
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks -Multiviews
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^qing.lixianze.top$
+  RewriteCond %{REQUEST_URI} !^/laravel/public/index.php
+  RewriteRule (.*) /laravel/public$1 [R]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php?/$1 [QSA,PT,L]
+</IfModule>

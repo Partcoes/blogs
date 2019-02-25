@@ -1,0 +1,62 @@
+<link href="css/index/style.css" rel="stylesheet" type="text/css" />
+<link href="css/index/colour.css" rel="stylesheet" type="text/css" />
+<style>
+    .test{
+        position: relative !important;
+    }
+    canvas{
+        /*width: 1500px!important;*/
+        position: absolute;
+        top: 0px;
+        z-index: -1;
+    }
+</style>
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="js/index/modernizr-1.5.min.js"></script>
+  <script src="/js/background/three.min.js"></script>
+
+<body>
+  <div id="main">
+
+      <!-- begin header -->
+      <!-- end header -->
+      <div id="c">
+          <ul class="slideshow">
+              <li class="show"><img width="950" height="450" src="images/home_1.jpg" alt="&quot;这是一场来不及举手的旅行&quot;" /></li>
+              <li><img width="950" height="450" src="images/home_2.jpg" alt="&quot;像花儿一样绽放&quot;" /></li>
+              <li><img width="950" height="450" src="images/home_3.jpg" alt="&quot;没有合适的雨伞，我们宁愿淋雨.&quot;" /></li>
+          </ul>
+      </div>
+      <!-- end content -->
+
+      <!-- begin footer -->
+      <!-- end footer -->
+
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="js/index/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index/jquery.easing-sooper.js"></script>
+  <script type="text/javascript" src="js/index/jquery.sooperfish.js"></script>
+  <script type="text/javascript" src="js/index/image_fade.js"></script>
+  <!-- initialise sooperfish menu -->
+<!--  <script type="text/javascript">-->
+<!--    $(document).ready(function() {-->
+<!--      $('ul.sf-menu').sooperfish();-->
+<!--    });-->
+<!--  </script>-->
+</body>
+<script src="/js/incanvas.js"></script>
+<script>
+    $(document).ready(function(){
+        var width = screen.width - 30;
+        $('canvas').attr("style",'width:'+width+'px!important');
+        if(width < 1000){
+            $('img').attr("width",width);
+            $('#site_content').attr("style","width:"+width+"px");
+            $(".slideshow").attr("style","width:"+width+"px");
+            $("#slideshow-caption").attr("style","width:"+width+"px");
+            $(".slideshow-caption-container").attr("style","width:"+width+"px")
+        }
+
+    })
+</script>
