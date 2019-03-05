@@ -142,8 +142,8 @@ class PostController extends Controller
         $recentComments=Comment::getRecentComment();
         $userMe = User::findOne(Yii::$app->user->id);
         $commentModel = new Comment();
-        $commentModel->email = property_exists("User",'email') == true ? $userMe -> email:"";
-        $commentModel->userid = property_exists("User",'id') == true ? $userMe -> id:"";
+        $commentModel->email =$userMe == null ? '':$userMe -> email;
+        $commentModel->userid = $userMe == null ?'':$userMe -> userid;
         $topLists = (new \yii\db\Query()) ->select(['post.title', 'comment.post_id',"count('comment.post_id') as count"]) -> from('post') -> join('inner join','comment','comment.post_id=post.id') -> groupBy('comment.post_id') -> orderBy("count desc") -> limit (8) -> all();
 //        var_dump($topLists);die;
         //step2. 当评论提交时，处理评论
